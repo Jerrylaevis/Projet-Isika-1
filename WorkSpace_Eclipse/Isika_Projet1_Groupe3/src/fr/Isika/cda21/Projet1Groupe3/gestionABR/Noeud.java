@@ -64,9 +64,9 @@ public class Noeud {
 			FileReader fr = new FileReader(annuaireTxt);
 			BufferedReader br = new BufferedReader(fr);
 			
-			String nom = br.readLine();
+			String nom = br.readLine().toUpperCase();
 			String prenom = br.readLine();
-			int dep = Integer.parseInt(br.readLine()) ;
+			String dep = br.readLine();
 			String promo = br.readLine();
 			int anneeF = Integer.parseInt(br.readLine());
 			br.readLine();						// pour passer la ligne *
@@ -75,13 +75,13 @@ public class Noeud {
 			racine = new Noeud(stagiaireRoi, null, null);
 			
 			while(br.ready()) {
-				nom = br.readLine();
+				nom = br.readLine().toUpperCase();
 				prenom = br.readLine();
-				dep = Integer.parseInt(br.readLine()) ;
+				dep = br.readLine();
 				promo = br.readLine();
 				anneeF = Integer.parseInt(br.readLine());
 				br.readLine();
-				
+			
 				Stagiaire nouveauStagiaire = new Stagiaire(nom, prenom, dep, promo, anneeF);
 				racine.ajouterNoeud(nouveauStagiaire);
 			}

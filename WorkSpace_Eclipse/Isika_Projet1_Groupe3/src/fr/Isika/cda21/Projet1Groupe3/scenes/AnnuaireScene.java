@@ -3,7 +3,7 @@
 package fr.Isika.cda21.Projet1Groupe3.scenes;
 
 import fr.Isika.cda21.Projet1Groupe3.entites.Stagiaire;
-
+import fr.Isika.cda21.Projet1Groupe3.objetsGraphiques.PersoButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,14 +17,17 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class AnnuaireScene extends Scene {
-
+	
 	//---------------ATTRIBUTS-----------------
 		public BorderPane root2;
 		public GridPane formulaire;
-		public GridPane listeStagiaire;
+		public VBox listeStagiaire;
+		public HBox buttons;
 		public Stage stage;
 		//Ajouter la liste stagiaire
 		//Titres
@@ -49,19 +52,22 @@ public class AnnuaireScene extends Scene {
 		public Button btnRetour;
 		public Button btnRechercher;
 		public Button btnAjouter;
+		public Button btnImprimer;
+		public Button btnSupprimer;
+		public Button btnModifier;
 		//Liste observable
 		public ObservableList<Stagiaire> observableList;
 		public TableView<Stagiaire> table;
 		
 	//--------------CONSTRUCTEUR---------------
 		public AnnuaireScene(Stage stage) { //ajouter la liste Stagiaire en paramètres
-		super(new BorderPane(),1000,700);
+		super(new BorderPane(),1200,750);
 			
 		//PARTIE GAUCHE = FORMULAIRE
 		formulaire = new GridPane();	
 		
 		//1ere ligne : BTNRETOUR/TITRE
-		btnRetour = new Button("Retour");
+		btnRetour = new PersoButton("Retour");
 		titreFormulaire = new Label ("FORMULAIRE D'ENREGISTREMENT");
 		formulaire.addRow(0, btnRetour,titreFormulaire);
 		
@@ -93,8 +99,8 @@ public class AnnuaireScene extends Scene {
 		formulaire.addRow(3, promo, textPromo, anneePromo, textAnnee);
 		
 		//5eme ligne : BTN RECHERCHER ET AJOUTER
-		btnRechercher = new Button("Rechercher");
-		btnAjouter = new Button("Ajouter");
+		btnRechercher = new PersoButton("Rechercher");
+		btnAjouter = new PersoButton("Ajouter");
 		formulaire.addRow(4, btnRechercher, btnAjouter);
 		
 		root2 = ((BorderPane)this.getRoot());
@@ -110,18 +116,15 @@ public class AnnuaireScene extends Scene {
 					//modifier la tableView 
 		
 		//PARTIE DROITE = TABLEVIEW
-		listeStagiaire = new GridPane();
-		
-		//1ere ligne : TITRE
+		listeStagiaire = new VBox();
 		titreListe = new Label ("LISTE DES STAGIAIRES");
-		listeStagiaire.addRow(0, titreListe);
-		
+
 		//2eme ligne : Tableview
 		//A COMPLETER AVEC LA LISTE STAGIAIRES !
 		observableList = FXCollections.observableArrayList();
 		table = new TableView<>(observableList);
 		
-		TableColumn <Stagiaire, String> colNom = new TableColumn<>("NOM");
+		TableColumn <Stagiaire, String> colNom = new TableColumn<>("Nom");
 		//colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
 		TableColumn <Stagiaire, String> colPrenom = new TableColumn<>("Prénom");
 		//colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
@@ -133,14 +136,22 @@ public class AnnuaireScene extends Scene {
 		//colPromo.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("promo"));
 		
 		table.getColumns().addAll(colNom,colPrenom,colDep,colPromo,colAnnee);
-		//table.setColumnResizePolicy(table.UNCONSTRAINED_RESIZE_POLICY);
-		table.setPrefSize(500, 625);
+		table.setColumnResizePolicy(table.CONSTRAINED_RESIZE_POLICY);
+		table.setPrefSize(500, 650);
+	
+		//sous le tableau : Boutons
+		buttons = new HBox();
+		btnImprimer = new PersoButton ("Imprimer");
+		btnSupprimer = new PersoButton ("Supprimer");
+		btnModifier = new PersoButton ("Modifier");
+		buttons.getChildren().addAll(btnImprimer, btnSupprimer, btnModifier);
 		
-		listeStagiaire.addRow(1, table);
+		listeStagiaire.getChildren().addAll(titreListe, table, buttons);
+		listeStagiaire.setPadding(new Insets(0,20,0,0));
 		
-		//listeStagiaire.setPrefWidth(1000);
+		listeStagiaire.setPrefWidth(1000);
 		root2.setCenter(listeStagiaire);
-		root2.setPrefWidth(1000);
+		
 	}
 		
 

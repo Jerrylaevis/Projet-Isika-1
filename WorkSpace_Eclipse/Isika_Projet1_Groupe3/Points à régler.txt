@@ -1,0 +1,3 @@
+13 octobre au soir :
+- les "départements" ne sont pas tous des entiers
+- l'accès est validé même avec un mdp incorrect
