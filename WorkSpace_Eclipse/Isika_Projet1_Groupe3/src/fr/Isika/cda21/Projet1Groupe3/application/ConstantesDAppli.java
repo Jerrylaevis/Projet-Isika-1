@@ -1,28 +1,40 @@
-package fr.Isika.cda21.Projet1Groupe3.application;
+package fr.isika.cda21.Projet1Groupe3.application;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public abstract class ConstantesDAppli {
 	
-	private static final String nomFihierTxt = "src/mesFichiers/STAGIAIRES.DON";
-	private static final String nomFihierBin = "src/mesFichiers/STAGIAIRES.bin";
-	//private static final String nomFihierTxt = "src/mesFichiers/FichierTest.DON";
+	private static final String NOM_FICHIER_BIN = "src/mesFichiers/STAGIAIRES.bin";
+	private static final String NOM_FICHIER_BIN_DATE = "src/mesFichiers/Annuaire_"+LocalDate.now().toString()+"_"+LocalTime.now().getHour()+"H"+LocalTime.now().getMinute()+".bin";
+	private static final String NOM_FICHIER_TXT = "src/mesFichiers/STAGIAIRES.DON";
+	//private static final String NOM_FICHIER_TXT = "src/mesFichiers/FichierTest.DON";
+	//private static final String NOM_FICHIER_TXT = "src/mesFichiers/FichierTestDoublons.DON";
+	
+	// int index									     4 octets
+	// int pere										     4 octets
 	
 	public static final int TAILLE_MAX_NOM = 25;      //50 octets
 	public static final int TAILLE_MAX_PRENOM = 20;   //40 octets
 	public static final int TAILLE_MAX_DEP = 2;		  // 4 octets
 	public static final int TAILLE_MAX_PROMO = 11;    //22 octets
-	//public static final int TAILLE_MAX_ANNEE_F = 1; // 4 octets
+	// int anneeF										 4 octets
 	
-	public static final int TAILLE_NOEUD_BIN = 128; //120 + 4 + 4
+	// int filsG									  // 4 octets
+	// int filsD									  // 4 octets
+	// int indexDoublon								  // 4 octets
 	
+	public static final int TAILLE_NOEUD_BIN = 128; // 120 + 4 + 4
+	public static final int TAILLE_BLOC = 140; 		// 4 + 4 + 120 + 4 + 4 + 4
 	
 	
 
-	public static String getNomFihierTxt() {
-		return nomFihierTxt;
+	public static String getNomFichierTxt() {
+		return NOM_FICHIER_TXT;
 	}
 	
-	public static String getNomFihierBin() {
-		return nomFihierBin;
+	public static String getNomFichierBin() {
+		return NOM_FICHIER_BIN;
 	}
 
 	public static int getTailleMaxNom() {
@@ -43,6 +55,10 @@ public abstract class ConstantesDAppli {
 
 	public static int getTailleNoeudBin() {
 		return TAILLE_NOEUD_BIN;
+	}
+
+	public static String getNomFichierBinDate() {
+		return NOM_FICHIER_BIN_DATE;
 	}
 
 

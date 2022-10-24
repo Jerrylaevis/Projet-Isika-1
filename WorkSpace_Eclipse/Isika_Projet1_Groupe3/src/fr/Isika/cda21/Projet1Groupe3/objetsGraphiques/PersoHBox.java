@@ -1,4 +1,4 @@
-package fr.Isika.cda21.Projet1Groupe3.objetsGraphiques;
+package fr.isika.cda21.Projet1Groupe3.objetsGraphiques;
 
 import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;

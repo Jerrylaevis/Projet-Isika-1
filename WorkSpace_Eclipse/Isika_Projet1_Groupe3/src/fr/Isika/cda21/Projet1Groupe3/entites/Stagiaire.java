@@ -1,8 +1,8 @@
 // Authors : Rocio Keuro, Jérôme Vallin
 
-package fr.Isika.cda21.Projet1Groupe3.entites;
+package fr.isika.cda21.Projet1Groupe3.entites;
 
-import fr.Isika.cda21.Projet1Groupe3.application.ConstantesDAppli;
+import fr.isika.cda21.Projet1Groupe3.application.ConstantesDAppli;
 
 public class Stagiaire {
 	
@@ -55,8 +55,8 @@ public class Stagiaire {
 	
 	@Override
 	public String toString() {
-		//return prenom+" "+nom+", département "+dep+", de la promo "+promo+" ("+anneeF+")";
-		return prenom+" "+nom+"  ";
+		return prenom+" "+nom+", département "+dep+", de la promo "+promo+" ("+anneeF+")";
+		//return prenom+" "+nom+"  ";
 	}
 
 	// *************** MISE AU BON FORMAT *******************
@@ -106,6 +106,7 @@ public class Stagiaire {
 		return promoLong;
 	}
 	
+	// ********************* AJOUTS POSTERIEURS A V2.1 **********************
 	
 	
 	

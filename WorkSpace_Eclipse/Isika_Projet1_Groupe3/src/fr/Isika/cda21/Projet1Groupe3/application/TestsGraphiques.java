@@ -14,7 +14,7 @@ public class TestsGraphiques extends Application {
 	@Override
 	public void start(Stage stage) {
 		try {
-			stage.setScene(new LoginScene(stage));
+			stage.setScene(new LoginScene(stage, null, null));
 			stage.setResizable(false);
 			stage.show();
 		} catch(Exception e) {

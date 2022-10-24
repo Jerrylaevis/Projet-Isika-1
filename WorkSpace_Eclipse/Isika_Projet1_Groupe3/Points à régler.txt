@@ -1,3 +1,18 @@
 13 octobre au soir :
 - les "départements" ne sont pas tous des entiers
 - l'accès est validé même avec un mdp incorrect
+
+14 octobre au soir :
+- !!!! Mauvaise MaJ de l'index lors de l'ajout : modif effectuée sur le fils !!!!!
+- Faut-il faire une classe 'BlocBin' (attributs : Stagiaire stagiaire, int indexFilsG, int indexFilsD) ? Ceci remplacerait NoeudBin. Pour avoir des méthodes non statiques.
+- Où mettre la fonction afficheListe qui s'applique à une liste de Stagiaires ? Pour l'instant, dans classe Stagiaires.
+- Problème des accents dans les prénoms (parfois absent)
+
+16 octobre :
+- Effacer le fichier .bin plutôt que de créer un nouveau fichier (daté).
+
+
+
+
+v3 : Classe bloc pour méthodes non statiques ; attributs 'index' et 'pere' ; classe AbrBinaire ; fichiers .bin datés ; prenoms normalises pour les recherches ; recherche sur nom / nom partiel / prénom / prénom partiel
+
